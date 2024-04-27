@@ -1,0 +1,122 @@
+swagger: "2.0"
+info:
+  title: "Hello world API"
+  version: "1.0.0"
+  contact: 
+    email: "oscar.garcia@mariachi.io"
+    name: "OGA"
+    url: "https://spring.io"
+  description: "API para realizar un hola mundo en api design"
+  license:
+    name: "Apache 2.0"
+    url: "https://spring.io"
+  termsOfService: "https://spring.io"
+basePath: "/api"
+host: "localhost:8080"
+tags:
+  - name: "Hello group"
+    description: "All about hello world"
+    externalDocs:
+      url: "https://spring.io"
+      description: "Documentacion centralizada del hola mundo"
+schemes:
+  - "http"
+  - "https"
+paths:
+  /greetings:
+    get:
+      tags:
+        - "Hello group"
+      description: "Obtiene todos los saludos de hola mundo"
+      operationId: "getAllGreetings"
+      produces: 
+        - "application/json"
+        - "application/xml"
+      responses:
+        200:
+          description: success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Greeting"
+        400:
+          description: "No greetings found"
+    post: 
+      parameters:
+        - name: greeting
+          in: body
+          schema:
+            $ref: "#/definitions/Greeting"
+          required: true
+      operationId: addGreeting
+      summary: "This adds a new greeting resource"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: "#/definitions/Greeting"
+  /greetings/{message}:
+    get:
+      tags:
+        - "Hello group"
+      description: "Obtener un saludo de hola mundo con el id especificado"
+      operationId: "getGreetingById"
+      produces:
+        - "application/json"
+      parameters:
+        - name: message
+          in: path
+          type: string
+          required: true
+      responses:
+        200:
+          description: success
+          schema:
+            $ref: "#/definitions/Greeting"
+    put:
+      description: "Updates a greeting"
+      operationId: "updateGreeting"
+      produces:
+        - "application/json"
+      parameters:
+        - name: message
+          in: path
+          type: string
+          required: true
+        - name: greeting
+          in: body
+          schema:
+            $ref: "#/definitions/Greeting"
+          required: true
+      responses:
+        200:
+          description: "sucess"
+          schema: 
+            $ref: "#/definitions/Greeting"
+        404:
+          description: notfound
+definitions:
+  Greeting:
+    required:
+      - "id"
+      - "message"
+    properties: 
+      id:
+        type: integer
+        format: "int64"
+        example: 1234
+        description: "Internal Id of the hello world greeting"
+      message:
+        type: string
+        example: "Hello world !!!"
+        description: "GReeting message"
+      location:
+        type: string
+        example: "CDMX"
+        description: "Location of the greeting"
+
+      
+
+
