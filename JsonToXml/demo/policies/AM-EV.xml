@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="AM-EV">
+  <DisplayName>AM-EV</DisplayName>
+  <Set>
+    <Payload contentType="application/xml">
+      <IdExtractedFromUrl>{myprefix.id}</IdExtractedFromUrl>
+      <DbnCodeFromQueryParam>{myprefix.dbncode}</DbnCodeFromQueryParam>
+      <UserNameFromPayload>{myprefix.username}</UserNameFromPayload>
+      <OauthTokenFromHeader>{myprefix.oauthtoken}</OauthTokenFromHeader>
+    </Payload>
+  </Set>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>
