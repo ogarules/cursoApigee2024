@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="AM-Create-SOAP-message">
+  <DisplayName>AM-Create-SOAP-message</DisplayName>
+  <AssignVariable>
+    <Name>jsonpath1</Name>
+    <Value>$.id</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>jsonpath2</Name>
+    <Value>$.username</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>jsonpath3</Name>
+    <Value>$.Header1</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>jsonpath4</Name>
+    <Value>$.Header2</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>jsoncontent</Name>
+    <Ref>request.content</Ref>
+  </AssignVariable>
+  <Set>
+    <Payload contentType="text/xml">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+        <soap:Header>
+            <ns1:Header1 xmlns:ns1="urn:whatever1">{jsonPath(jsonpath3,jsoncontent)}</ns1:Header1>
+            <ns1:Header2 xmlns:ns1="urn:whatever1">{jsonPath(jsonpath4,jsoncontent)}</ns1:Header2>
+        </soap:Header>
+        <soap:Body>
+          <getUserInfo xmlns:ns1="urn:whatever2" xmlns:ns2="urn:something-else">
+            <ns1:id>{jsonPath(jsonpath1,jsoncontent)}</ns1:id>
+            <ns1:username>{jsonPath(jsonpath2,jsoncontent)}</ns1:username>
+          </getUserInfo>
+        </soap:Body>
+      </soap:Envelope>
+    </Payload>
+    <Verb>POST</Verb>
+  </Set>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>
