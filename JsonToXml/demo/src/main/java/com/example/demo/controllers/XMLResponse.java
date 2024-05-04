@@ -12,6 +12,7 @@ import java.nio.charset.StandardCharsets;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.util.StreamUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -25,6 +26,14 @@ public class XMLResponse {
         byte[] requestBody = StreamUtils.copyToByteArray(request.getInputStream());
         log.info("request body => {}", new String(requestBody, StandardCharsets.UTF_8));
         
+        return DataResponse.builder().value("123").build();
+    }
+
+    @PostMapping("/xml/accounts/{id}")
+    public Object postMethodName(HttpServletRequest request, @PathVariable Long id) throws IOException {
+        byte[] requestBody = StreamUtils.copyToByteArray(request.getInputStream());
+        log.info("request body => {}", new String(requestBody, StandardCharsets.UTF_8));
+        log.info("id => {}", id);
         return DataResponse.builder().value("123").build();
     }
     

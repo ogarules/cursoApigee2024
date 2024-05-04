@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables continueOnError="false" enabled="true" name="EV-ExtractForPAyload">
+  <DisplayName>EV-ExtractForPAyload</DisplayName>
+  <Source clearPayload="true">request</Source>
+  <VariablePrefix>myprefix</VariablePrefix>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <URIPath>
+    <Pattern ignoreCase="false">/accounts/{id}</Pattern>
+  </URIPath>
+  <QueryParam name="code">
+    <Pattern ignoreCase="true">DBN{dbncode}</Pattern>
+  </QueryParam>
+  <Header name="Authorization">
+    <Pattern ignoreCase="false">Bearer {oauthtoken}</Pattern>
+  </Header>
+  <JSONPayload>
+    <Variable name="username">
+      <JSONPath>$.username</JSONPath>
+    </Variable>
+  </JSONPayload>
+</ExtractVariables>
