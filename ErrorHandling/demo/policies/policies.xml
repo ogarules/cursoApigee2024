@@ -100,17 +100,17 @@
       </Step>
       <Condition>(fault.name = "invalid_token_expired")</Condition>
     </FaultRule>
-    <DefaultFaultRule name="all">
-      <AlwaysEnforce>true</AlwaysEnforce>
-      <Step>
-        <Name>AssignMessage.SetInternalServerErrorVariables</Name>
-        <Condition>(flow.myapi.error.code = null)</Condition>
-      </Step>
-      <Step>
-        <Name>RaiseFault.Json</Name>
-      </Step>
-    </DefaultFaultRule>
   </FaultRules>
+  <DefaultFaultRule name="all">
+    <AlwaysEnforce>true</AlwaysEnforce>
+    <Step>
+      <Name>AssignMessage.SetInternalServerErrorVariables</Name>
+      <Condition>(flow.myapi.error.code = null)</Condition>
+    </Step>
+    <Step>
+      <Name>RaiseFault.Json</Name>
+    </Step>
+  </DefaultFaultRule>
   <PreFlow name="PreFlow">
     <Request/>
     <Response/>
@@ -127,6 +127,7 @@
     <TargetEndpoint>default</TargetEndpoint>
   </RouteRule>
 </ProxyEndpoint>
+
 
 
 
