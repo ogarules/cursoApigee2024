@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="AssignMessage.SetExpiredAccessTokenErrorVariables">
+  <DisplayName>AssignMessage.SetExpiredAccessTokenErrorVariables</DisplayName>
+  <AssignVariable>
+    <Name>flow.myapi.error.code</Name>
+    <Value>400</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.myapi.error.message</Name>
+    <Value>access token has expired</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.myapi.error.info</Name>
+    <Value>htpps://developers.myapi.com</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.myapi.error.status</Name>
+    <Value>400</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.myapi.error.reason</Name>
+    <Value>Bad Request</Value>
+  </AssignVariable>
+</AssignMessage>
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="AssignMessage.SetInternalServerErrorVariables">
+  <DisplayName>AssignMessage.SetInternalServerErrorVariables</DisplayName>
+  <AssignVariable>
+    <Name>flow.myapi.error.code</Name>
+    <Value>500</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.myapi.error.message</Name>
+    <Value>internal server error</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.myapi.error.info</Name>
+    <Value>htpps://developers.myapi.com</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.myapi.error.status</Name>
+    <Value>500</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.myapi.error.reason</Name>
+    <Value>Internal server error</Value>
+  </AssignVariable>
+</AssignMessage>
+
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="AssignMessage.SetInvalidAccessTokenErrorVariables">
+  <DisplayName>AssignMessage.SetInvalidAccessTokenErrorVariables</DisplayName>
+  <AssignVariable>
+    <Name>flow.myapi.error.code</Name>
+    <Value>400</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.myapi.error.message</Name>
+    <Value>invalid access token</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.myapi.error.info</Name>
+    <Value>htpps://developers.myapi.com</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.myapi.error.status</Name>
+    <Value>400</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>flow.myapi.error.reason</Name>
+    <Value>Bad Request</Value>
+  </AssignVariable>
+</AssignMessage>
