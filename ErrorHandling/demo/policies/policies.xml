@@ -127,3 +127,26 @@
     <TargetEndpoint>default</TargetEndpoint>
   </RouteRule>
 </ProxyEndpoint>
+
+
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault continueOnError="false" enabled="true" name="RaiseFault.Json">
+  <DisplayName>RaiseFault.Json</DisplayName>
+  <FaultResponse>
+    <Set>
+      <Headers>
+        <Header name="Content-Type">application/json</Header>
+      </Headers>
+      <Payload contentType="application/json">{
+            "code": "{flow.myapi.error.code}",
+            "message": "{flow.myapi.error.message}",
+            "info": "{flow.myapi.error.info}"
+      }</Payload>
+      <StatusCode>{flow.myapi.error.status}</StatusCode>
+      <ReasonPhrase>{flow.myapi.error.reason}</ReasonPhrase>
+    </Set>
+  </FaultResponse>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>
