@@ -78,3 +78,52 @@
     <Value>Bad Request</Value>
   </AssignVariable>
 </AssignMessage>
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+  <FaultRules>
+    <FaultRule name="Expired Access Token">
+      <Step>
+        <Name>AssignMessage.SetExpiredAccessTokenErrorVariables</Name>
+      </Step>
+      <Condition>(fault.name = "access_token_expired")</Condition>
+    </FaultRule>
+    <FaultRule name="Invalid Access Token">
+      <Step>
+        <Name>AssignMessage.SetInvalidAccessTokenErrorVariables</Name>
+      </Step>
+      <Condition>(fault.name = "invalid_token_expired")</Condition>
+    </FaultRule>
+    <DefaultFaultRule name="all">
+      <AlwaysEnforce>true</AlwaysEnforce>
+      <Step>
+        <Name>AssignMessage.SetInternalServerErrorVariables</Name>
+        <Condition>(flow.myapi.error.code = null)</Condition>
+      </Step>
+      <Step>
+        <Name>RaiseFault.Json</Name>
+      </Step>
+    </DefaultFaultRule>
+  </FaultRules>
+  <PreFlow name="PreFlow">
+    <Request/>
+    <Response/>
+  </PreFlow>
+  <Flows/>
+  <PostFlow name="PostFlow">
+    <Request/>
+    <Response/>
+  </PostFlow>
+  <HTTPProxyConnection>
+    <BasePath>/exception2</BasePath>
+  </HTTPProxyConnection>
+  <RouteRule name="default">
+    <TargetEndpoint>default</TargetEndpoint>
+  </RouteRule>
+</ProxyEndpoint>
