@@ -1,0 +1,62 @@
+{
+    "version":"1.0",
+    "envConfig":{
+       "test":{
+          "targetServers":[
+
+          ],
+          "virtualHosts":[
+           
+          ],
+          "references":[
+           
+          ],
+          "caches":[
+           
+           
+          ],
+          "resourcefiles":[
+          ],
+          "flowhooks":[
+            
+          ],
+          "extensions":[
+            
+          ],
+          "keystores":[
+
+          ],
+          "aliases":[
+            
+          ]
+       }
+    },
+    "orgConfig":{
+       "specs":[
+         
+       ],
+       "apiProducts":[
+        
+       ],
+       "userroles":[
+          
+       ],
+       "reports":[
+         
+       ],
+       "developers":[
+         
+       ],
+       "developerApps":{
+        
+       },
+       "importKeys":{
+       },
+       "companies":[
+       
+       ],
+       "companyApps":{
+         
+       }
+    }
+ }

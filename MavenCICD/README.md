@@ -1,0 +1,13 @@
+gcloud auth login
+gcloud projects list
+gcloud config set project inner-catfish-419618
+
+# Linux
+mvn clean install -Ptest -Dbearer=$(gcloud auth print-access-token) -Dapigee.config.options=create
+
+# Windows
+gcloud auth print-access-token
+ya29.a0AXooCgth6jKRBuEW6ng85o-flg4bGb3PqHkRCUTsuwIPvSSwlNAduFLs8ZpMkXjRvhLY49AKkAvINU08s6a2eSK2nJHshTt81MEw7uzB9bY5DGZrMHBOJEYXzu-ZDBG3UzX2mOqfeyJ5Y_Tst6msf5ZmhCdphxd1fSrPIxGfKr0aCgYKAd0SARISFQHGX2MiZayqxgLHkjp-pb4lRQ3RgA0178
+
+mvn clean install -f shared-pom.xml -Ptest -Dbearer="ya29.a0AXooCgth6jKRBuEW6ng85o-flg4bGb3PqHkRCUTsuwIPvSSwlNAduFLs8ZpMkXjRvhLY49AKkAvINU08s6a2eSK2nJHshTt81MEw7uzB9bY5DGZrMHBOJEYXzu-ZDBG3UzX2mOqfeyJ5Y_Tst6msf5ZmhCdphxd1fSrPIxGfKr0aCgYKAd0SARISFQHGX2MiZayqxgLHkjp-pb4lRQ3RgA0178" -Dapigee.config.options=create
+

@@ -14,11 +14,11 @@ public class SecurityConfig {
 
         http.authorizeRequests(auth -> auth
           .antMatchers(HttpMethod.GET, "/foos/**")
-          .permitAll()
-          .antMatchers(HttpMethod.POST, "/foos")
-          .hasAuthority("SCOPE_write")
-          .anyRequest()
-          .authenticated())
+          .permitAll())
+         // .antMatchers(HttpMethod.POST, "/foos")
+        //  .hasAuthority("SCOPE_write")
+        //  .anyRequest()
+        //  .authenticated())
           .oauth2ResourceServer(oauth2 -> oauth2.jwt());
 
         return http.build();
