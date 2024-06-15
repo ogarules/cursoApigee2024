@@ -1,10 +1,22 @@
 version: '3.4'
 
 services:
+  db:
+    image: mysql
+    restart: always
+    environment: 
+      MYSQL_DATABASE: 'curso-micro'
+      MYSQL_ROOT_PASSWORD: pass
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
   demo:
-    image: demo
+    image: containersoga/ejerciciodocker
     build:
       context: .
       dockerfile: ./Dockerfile
     ports:
       - 8080:8080
+    depends_on:
+      - db
