@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequiredArgsConstructor
 public class EmployeeController {
     
-    EmployeeRepository repository;
+    private final EmployeeRepository repository;
 
     @GetMapping
     public Iterable<Employee> getAllEmployees() {
