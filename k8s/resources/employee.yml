@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: employee
-        image: containersoga/employee
+        image: containersoga/employee:2
         imagePullPolicy: Always
         # resources:
         #   limits:

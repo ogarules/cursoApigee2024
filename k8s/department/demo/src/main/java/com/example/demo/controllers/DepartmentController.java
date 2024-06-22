@@ -43,7 +43,7 @@ public class DepartmentController {
         log.info("K8s obteniendo departamentos de la organizacion {}", id);
         List<Department> departments = repository.findByOrganizationId(id);
 
-        departments.forEach(d -> d.setEmployees(service.findByDepartmentId(id)));
+        departments.forEach(d -> d.setEmployees(service.findByDepartmentId(d.getId())));
 
         return departments;
     }
